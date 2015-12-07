@@ -3,8 +3,12 @@
 	As a customer
 	I want to be able to search for products
 
-Scenario: Search by keyword
+Scenario Outline: Search by keyword
 	Given I am on the homepage
-	And I have entered the keyword 'bugeye'
+	And I have entered the keyword <SearchTerm>
 	When I search
-	Then results should contain 'bugeye'
+	Then results should contain <Title>
+
+    Examples: 
+        | SearchTerm   | Title           |
+        | 'bugeye'     | 'bugeye'        | 

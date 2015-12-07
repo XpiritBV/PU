@@ -74,22 +74,23 @@ namespace PartsUnlimited.ExecutableSpecs
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute()]
+        [Xunit.Extensions.TheoryAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Search")]
         [Xunit.TraitAttribute("Description", "Search by keyword")]
-        public virtual void SearchByKeyword()
+        [Xunit.Extensions.InlineDataAttribute("\'bugeye\'", "\'bugeye\'", new string[0])]
+        public virtual void SearchByKeyword(string searchTerm, string title, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search by keyword", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search by keyword", exampleTags);
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
  testRunner.Given("I am on the homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("I have entered the keyword \'bugeye\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("I have entered the keyword {0}", searchTerm), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
  testRunner.When("I search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.Then("results should contain \'bugeye\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("results should contain {0}", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
