@@ -13,6 +13,7 @@ namespace PartsUnlimited.ExecutableSpecs.PageObjects
 
         public SearchResultsPage FindResultByTitle(string title)
         {
+            this.I.Wait(4);
             this.I.Expect.Exists(string.Format(ResultTitle, title));
             return this;
         }

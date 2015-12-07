@@ -22,8 +22,11 @@ namespace PartsUnlimited.ExecutableSpecs
         public static void SpecflowBeforeTestRun()
         {
             SeleniumWebDriver.Bootstrap(
-                SeleniumWebDriver.Browser.Chrome
+                SeleniumWebDriver.Browser.PhantomJs
             );
+
+            FluentSettings.Current.WindowHeight = 1080;
+            FluentSettings.Current.WindowWidth = 1980;
         }
 
         [AfterScenario("Selenium")]

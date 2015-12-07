@@ -12,12 +12,6 @@ namespace PartsUnlimited.ExecutableSpecs
     [Binding]
     public class SearchSteps
     {
-        public SearchSteps()
-        {
-            
-        }
-
-
         [Given(@"I am on the homepage")]
         public void GivenIAmOnTheHomepage()
         {

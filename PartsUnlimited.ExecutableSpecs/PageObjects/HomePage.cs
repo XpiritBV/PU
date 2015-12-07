@@ -12,6 +12,8 @@ namespace PartsUnlimited.ExecutableSpecs.PageObjects
          
         public HomePage EnterSearchCriteria(string searchText)
         {
+            this.I.Focus(SearchInput);
+            this.I.Scroll(SearchInput);
             this.I.Enter(searchText).In(SearchInput);
             return this;
         }
