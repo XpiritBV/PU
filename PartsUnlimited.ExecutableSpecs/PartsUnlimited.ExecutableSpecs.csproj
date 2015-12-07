@@ -90,6 +90,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="InitializeSeleniumForScenario.cs" />
+    <Compile Include="PageObjects\BrowserWindow.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\SearchResultsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

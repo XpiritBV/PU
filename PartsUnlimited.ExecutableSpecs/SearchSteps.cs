@@ -14,9 +14,7 @@ namespace PartsUnlimited.ExecutableSpecs
     {
         public SearchSteps()
         {
-            SeleniumWebDriver.Bootstrap(
-                SeleniumWebDriver.Browser.Chrome
-            );
+            
         }
 
 
