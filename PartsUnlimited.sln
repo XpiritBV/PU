@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8D24BBB2-5220-4522-8E87-9A455C886175}"
 EndProject
@@ -16,6 +16,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartsUnlimited.WebSite.IntegrationTests", "PartsUnlimited.WebSite.IntegrationTests\PartsUnlimited.WebSite.IntegrationTests.csproj", "{B65FA26B-FBEC-4F59-B6B5-03A91913145B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartsUnlimited.ExecutableSpecs", "PartsUnlimited.ExecutableSpecs\PartsUnlimited.ExecutableSpecs.csproj", "{D2FECC79-5C62-4B3E-8A7A-A9EF64ED1095}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0890E3BC-54DC-4F49-A7F7-A477314B63B4}"
+	ProjectSection(SolutionItems) = preProject
+		PartsUnlimited.ruleset = PartsUnlimited.ruleset
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
