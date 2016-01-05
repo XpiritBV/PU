@@ -36,6 +36,8 @@ namespace PartsUnlimited.Controllers
             var tax = (subTotal + shipping) * (decimal)0.05;
             var total = subTotal + shipping + tax;
 
+            throw new ArgumentException("Intellitrace and Symbol Server Demo");
+
             var costSummary = new OrderCostSummary
             {
                 CartSubTotal = subTotal.ToString("C"),
