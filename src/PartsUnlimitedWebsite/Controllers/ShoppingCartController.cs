@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -36,7 +36,7 @@ namespace PartsUnlimited.Controllers
             var tax = (subTotal + shipping) * (decimal)0.05;
             var total = subTotal + shipping + tax;
 
-            throw new ArgumentException("Intellitrace and Symbol Server Demo");
+           
 
             var costSummary = new OrderCostSummary
             {
