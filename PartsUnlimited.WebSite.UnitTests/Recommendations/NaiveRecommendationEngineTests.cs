@@ -4,12 +4,14 @@ using System.Linq;
 using PartsUnlimited.Recommendations;
 
 using Xunit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PartsUnlimited.WebSite.UnitTests.Recommendations
 {
     public class NaiveRecommendationEngineTests
     {
         [Fact]
+        [TestCategory("Integration")]
         public void NaiveRecommendationEngineReturnsSameProductId()
         {
             IRecommendationEngine engine = new NaiveRecommendationEngine();
@@ -18,10 +20,11 @@ namespace PartsUnlimited.WebSite.UnitTests.Recommendations
 
             IEnumerable<string> recommendations = engine.GetRecommendationsAsync(productId).Result;
 
-            Assert.Equal(new[] { productId }, recommendations.ToArray());
+            Xunit.Assert.Equal(new[] { productId }, recommendations.ToArray());
         }
 
         [Fact]
+        [TestCategory("Unit")]
         public void NaiveRecommendationEngineReturnsNullArrayForNull()
         {
             IRecommendationEngine engine = new NaiveRecommendationEngine();
@@ -30,7 +33,7 @@ namespace PartsUnlimited.WebSite.UnitTests.Recommendations
 
             IEnumerable<string> recommendations = engine.GetRecommendationsAsync(productId).Result;
 
-            Assert.Equal(new[] { productId }, recommendations.ToArray());
+            Xunit.Assert.Equal(new[] { productId }, recommendations.ToArray());
         }
     }
 }

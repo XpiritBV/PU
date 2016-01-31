@@ -7,6 +7,7 @@
 Scenario Outline: Search by keyword
 	Given I am on the homepage
 	And I have entered the keyword <SearchTerm>
+	
 	When I search
 	Then results should contain <Title>
 
