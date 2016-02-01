@@ -8,26 +8,39 @@ using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
+using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
+using Partsunlimited.PageObjectModel.PageObjects;
 
-
-namespace Partsunlimited.SeleniumTests
+namespace Partsunlimited.CodedUITest
 {
     /// <summary>
     /// Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class CodedUITest1
+
+    public class ValidateSearchCodedUI
     {
-        public CodedUITest1()
+        public ValidateSearchCodedUI()
         {
         }
 
         [TestMethod]
-        public void TestWithSelenium()
-        {
-            // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
-        }
+        [TestCategory("UI Test")]
 
+        public void BuyOneProductPageObject()
+        {
+            Playback.PlaybackSettings.WaitForReadyLevel = WaitForReadyLevel.Disabled;
+            var bw = BrowserWindow.Launch("http://partsunlimited.azurewebsites.net");
+
+            var home = new HomePage(bw);
+            Assert.IsTrue(
+            home.SelectCategory("Lighting")
+                .SelectProduct("Halogen")
+                .AddProductToCart()
+                .IsProductInBasket("Halogen"));
+
+      
+        }
         #region Additional test attributes
 
         // You can use the following additional attributes as you write your tests:

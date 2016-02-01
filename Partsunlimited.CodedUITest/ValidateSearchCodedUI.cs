@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-
+using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 
 namespace Partsunlimited.CodedUITest
 {
@@ -16,18 +16,45 @@ namespace Partsunlimited.CodedUITest
     /// Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class CodedUITest1
+    public class ValidateSearchCodedUI
     {
-        public CodedUITest1()
+        public ValidateSearchCodedUI()
         {
         }
 
         [TestMethod]
-        public void CodedUITestMethod1()
-        {
-            // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
-        }
+        [TestCategory("UI Test")]
 
+        public void BuyOneProductCodedUI()
+        {
+            Playback.PlaybackSettings.WaitForReadyLevel = WaitForReadyLevel.Disabled;
+           var bw = BrowserWindow.Launch("http://partsunlimited.azurewebsites.net");
+            HtmlDiv categoryDiv = new HtmlDiv(bw);
+            categoryDiv.SearchProperties.Add(HtmlControl.PropertyNames.Class, "hidden-xs", PropertyExpressionOperator.Contains);
+            //categoryDiv.DrawHighlight();
+            
+            HtmlHyperlink lightingCategoryLink = new HtmlHyperlink(categoryDiv);
+            lightingCategoryLink.SearchProperties.Add(HtmlControl.PropertyNames.InnerText, "Lighting", PropertyExpressionOperator.Contains);
+            //lightingCategoryLink.DrawHighlight();
+
+            Mouse.Click(lightingCategoryLink);
+            HtmlDiv LightingList = new HtmlDiv(bw);
+            LightingList.SearchProperties.Add(HtmlControl.PropertyNames.Class, "list-item-part", PropertyExpressionOperator.Contains);
+            //LightingList.DrawHighlight();
+
+            HtmlHyperlink lightingProduct = new HtmlHyperlink(LightingList);
+            lightingProduct.SearchProperties.Add(HtmlControl.PropertyNames.Title, "Halogen", PropertyExpressionOperator.Contains);
+           // lightingProduct.DrawHighlight();
+
+            Mouse.Click(lightingProduct);
+
+          
+            HtmlHyperlink ProductLink = new HtmlHyperlink(bw);
+            ProductLink.SearchProperties.Add(HtmlControl.PropertyNames.InnerText, "Add to Cart", PropertyExpressionOperator.Contains);
+            
+
+            Assert.IsTrue(ProductLink.TryFind());
+        }
         #region Additional test attributes
 
         // You can use the following additional attributes as you write your tests:

@@ -92,31 +92,16 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodedUITest1.cs" />
-    <Compile Include="PageObjects\BrowserWindow.cs" />
+    <Compile Include="PageObjects\CategoryPage.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
-    <Compile Include="PageObjects\SearchResultsPage.cs" />
+    <Compile Include="PageObjects\ProductDetailsPage.cs" />
+    <Compile Include="PageObjects\ShoppingBasketPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Search.feature.cs">
-      <DependentUpon>Search.feature</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
+    <Compile Include="ValidateSearchCodedUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <Content Include="test.runsettings">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Search.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Search.feature.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\packages\SonarLint.1.7.0\analyzers\SonarLint.CSharp.dll" />
-    <Analyzer Include="..\packages\SonarLint.1.7.0\analyzers\SonarLint.dll" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

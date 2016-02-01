@@ -1,30 +1,35 @@
-﻿using FluentAutomation;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
+using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace PartsUnlimited.ExecutableSpecs.PageObjects
+namespace Partsunlimited.PageObjectModel.PageObjects
 {
-    public class HomePage : PageObject<HomePage>
+    public class HomePage
     {
-        public HomePage(FluentTest test) : base (test)
-        {
-            this.Url = "http://localhost:5001/";
-            this.At = () => this.I.Expect.Exists(SearchInput);
-        }
-         
-        public HomePage EnterSearchCriteria(string searchText)
-        {
-            this.I.Focus(SearchInput);
-            this.I.Scroll(SearchInput);
-            this.I.Enter(searchText).In(SearchInput);
-            return this;
-        }
 
-        public SearchResultsPage Search()
+        BrowserWindow _bw;
+        public HomePage(BrowserWindow bw)
         {
-            this.I.Focus(SearchInput).Press("{ENTER}");
-            return this.Switch<SearchResultsPage>();
+            _bw = bw;
         }
+        public CategoryPage SelectCategory(string categoryName)
+        {
+
+            HtmlDiv categoryDiv = new HtmlDiv(_bw);
+            categoryDiv.SearchProperties.Add(HtmlControl.PropertyNames.Class, "hidden-xs", PropertyExpressionOperator.Contains);
+
+            HtmlHyperlink lightingCategoryLink = new HtmlHyperlink(categoryDiv);
+            lightingCategoryLink.SearchProperties.Add(HtmlControl.PropertyNames.InnerText, categoryName, PropertyExpressionOperator.Contains);
+
+            Mouse.Click(lightingCategoryLink);
 
 
-        private const string SearchInput = "#search-box";
+
+            return new CategoryPage(_bw);
+        }
     }
 }

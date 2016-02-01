@@ -7,6 +7,7 @@ namespace PartsUnlimited.WebSite.UnitTests.Recommendations
     public class ShoppingCartTests
     {
         [TestMethod]
+        [TestCategory("Unit")]
         public void ValidateShoppingCart()
         {
             Assert.AreEqual("1", "1");

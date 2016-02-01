@@ -11,7 +11,7 @@ namespace PartsUnlimited.WebSite.UnitTests.Recommendations
     public class NaiveRecommendationEngineTests
     {
         [Fact]
-        [TestCategory("Integration")]
+        [TestCategory("Unit")]
         public void NaiveRecommendationEngineReturnsSameProductId()
         {
             IRecommendationEngine engine = new NaiveRecommendationEngine();
