@@ -27,7 +27,8 @@ namespace Partsunlimited.CodedUITest
         public void BuyOneProductCodedUI()
         {
 
-            var bw = BrowserWindow.Launch("http://localhost:5001");            HtmlDiv categoryDiv = new HtmlDiv(bw);
+            var bw = BrowserWindow.Launch("http://localhost:5001");
+            HtmlDiv categoryDiv = new HtmlDiv(bw);
             categoryDiv.SearchProperties.Add(HtmlControl.PropertyNames.Class, "hidden-xs", PropertyExpressionOperator.Contains);
             
             HtmlHyperlink lightingCategoryLink = new HtmlHyperlink(categoryDiv);
