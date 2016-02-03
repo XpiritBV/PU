@@ -32,7 +32,7 @@ namespace Partsunlimited.SeleniumTests
         public void BuyOneProductSelenium()
         {
             var driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("http://partsunlimited.azurewebsites.net");
+            driver.Navigate().GoToUrl("http://localhost:5001");
             var lightingCategoryLink = driver.FindElementByCssSelector(".category-menu > div:nth-child(1) > div:nth-child(1) > ul:nth-child(1) > li:nth-child(2) > a:nth-child(1)");
             
 
