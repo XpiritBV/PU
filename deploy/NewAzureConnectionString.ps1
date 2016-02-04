@@ -1,8 +1,9 @@
-﻿#NewAzureConnectionString
+#NewAzureConnectionString
 param (
     [string]$webappname,
 	[string]$connectionStringName,
-	[string]$connectionStringValue
+	[string]$connectionStringValue,
+    [string]$slotName
 )
 
 #http://www.muddlingthru.ca/configure-azure-website-connection-strings-with-powershell
@@ -17,7 +18,7 @@ $appDBConnStrInfo.Type="SQLAzure";
 
 
 # Add new ConnStringInfo objecto list of connection strings for website. 
-$connStrSettings = (Get-AzureWebsite $webappname).ConnectionStrings; 
+$connStrSettings = (Get-AzureWebsite $webappname -slot $SlotName).ConnectionStrings; 
 
 $res = $connStrSettings.Find({ param($m) $m.Name.Equals($connectionStringName) })
 if ($res)
