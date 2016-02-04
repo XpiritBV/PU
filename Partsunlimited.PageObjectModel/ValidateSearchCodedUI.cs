@@ -30,7 +30,7 @@ namespace Partsunlimited.CodedUITest
         public void BuyOneProductPageObject()
         {
             Playback.PlaybackSettings.WaitForReadyLevel = WaitForReadyLevel.Disabled;
-            var bw = BrowserWindow.Launch("http://partsunlimited.azurewebsites.net");
+            var bw = BrowserWindow.Launch("http://localhost:5001");
 
             var home = new HomePage(bw);
             Assert.IsTrue(
