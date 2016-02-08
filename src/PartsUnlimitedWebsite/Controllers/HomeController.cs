@@ -5,6 +5,9 @@ using System.Runtime.Caching;
 using System.Web.Mvc;
 using PartsUnlimited.Models;
 using PartsUnlimited.ViewModels;
+using FeatureSwitcher;
+using PartsUnlimited.FeatureSwitches;
+using FeatureSwitcher.Configuration;
 
 namespace PartsUnlimited.Controllers
 {
@@ -18,6 +21,13 @@ namespace PartsUnlimited.Controllers
             _db = context;
         }
 
+
+        public ActionResult Enablefeature()
+        {
+           Features.Are.AlwaysEnabled();
+
+            return RedirectToAction("Index");
+        }
         //
         // GET: /Home/
         public ActionResult Index()
