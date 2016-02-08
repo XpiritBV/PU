@@ -46,10 +46,10 @@ namespace PartsUnlimited.Controllers
                 CartTotal = total.ToString("C")
             };
 
-            //if(total>150)
-            //{
-            //    throw new ArgumentException("This becomes to expensive...");
-            //}
+            if (total > 150)
+            {
+                throw new ArgumentException("This becomes to expensive...");
+            }
             // Set up our ViewModel
             var viewModel = new ShoppingCartViewModel
             {
