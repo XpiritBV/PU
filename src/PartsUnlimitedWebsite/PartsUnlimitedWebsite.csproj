@@ -482,6 +482,7 @@
   <ItemGroup>
     <Compile Include="Api\ProductsController.cs" />
     <Compile Include="Api\RaincheckController.cs" />
+    <Compile Include="appInsights\TelemetryInitializer.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />

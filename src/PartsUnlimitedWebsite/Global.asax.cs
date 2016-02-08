@@ -8,6 +8,8 @@ using System.Web.Routing;
 using Microsoft.Practices.Unity;
 using PartsUnlimited.Utils;
 using Unity.Mvc4;
+using Microsoft.ApplicationInsights.Extensibility;
+using PartsUnlimited.appInsights;
 
 namespace PartsUnlimited
 {
@@ -28,6 +30,8 @@ namespace PartsUnlimited
             WebApiConfig.RegisterWebApi(GlobalConfiguration.Configuration, UnityContainer);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            TelemetryConfiguration.Active.TelemetryInitializers.Add(new TelemetryInitializer());
+            TelemetryConfiguration.Active.ContextInitializers.Add(new TelemetryContextInitializer());
         }
     }
 }
