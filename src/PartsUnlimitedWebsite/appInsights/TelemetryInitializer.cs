@@ -15,7 +15,7 @@ namespace PartsUnlimited.appInsights
         public void Initialize(Microsoft.ApplicationInsights.Channel.ITelemetry telemetry)
         {
             telemetry.Context.Properties["E2ETrace.ActivityID"] = Trace.CorrelationManager.ActivityId.ToString();
-            telemetry.Context.Properties["Environment"] = System.Configuration.ConfigurationManager.AppSettings["environment"];
+            telemetry.Context.Properties["Environment"] = System.Configuration.ConfigurationManager.AppSettings["Environment"];
         }
     }
 
@@ -23,7 +23,7 @@ namespace PartsUnlimited.appInsights
     {
         public void Initialize(TelemetryContext context)
         {
-            context.Properties["Environment"] = System.Configuration.ConfigurationManager.AppSettings["environment"];
+            context.Properties["Environment"] = System.Configuration.ConfigurationManager.AppSettings["Environment"];
         }
     }
 }
