@@ -42,6 +42,7 @@
     <Content Include="Templates\WebsiteRules.json" />
     <Content Include="Templates\WebsiteWithTwoSlots.json" />
     <None Include="Scripts\SetSlotTrafic.ps1" />
+    <None Include="Scripts\SwapSlotsVipSwitch.ps1" />
   </ItemGroup>
   <Target Name="GetReferenceAssemblyPaths" />
 </Project>
