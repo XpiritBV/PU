@@ -23,14 +23,6 @@
     "vmName": {
       "value": "unique"
     },
-    "vaultName": {
-      "value": "PUVMsKeyVault"
-    },
-    "vaultResourceGroup": {
-      "value": "PUVMsKeyVault"
-    },
-    "certificateUrl": {
-      "value": "https://puvmskeyvault.vault.azure.net:443/secrets/WestEuropeCert/4503f986a9af406bb6dc1c5f341e9b29"
-    }
+ 
   }
 }
