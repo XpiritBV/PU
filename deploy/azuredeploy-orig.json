@@ -169,37 +169,39 @@
             "provisionVMAgent": "true",
           },
           "enableAutomaticUpdates": "true"
-        }
-      },
-      "storageProfile": {
-        "imageReference": {
-          "publisher": "[parameters('imagePublisher')]",
-          "offer": "[parameters('imageOffer')]",
-          "sku": "[parameters('imageSKU')]",
-          "version": "latest"
         },
-        "osDisk": {
-          "name": "osdisk",
-          "vhd": {
-            "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds/','osdisk.vhd')]"
+
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[parameters('imagePublisher')]",
+            "offer": "[parameters('imageOffer')]",
+            "sku": "[parameters('imageSKU')]",
+            "version": "latest"
           },
-          "caching": "ReadWrite",
-          "createOption": "FromImage"
-        }
-      },
-      "networkProfile": {
-        "networkInterfaces": [
-          {
-            "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+          "osDisk": {
+            "name": "osdisk",
+            "vhd": {
+              "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds/','osdisk.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
           }
-        ]
-      },
-      "diagnosticsProfile": {
-        "bootDiagnostics": {
-          "enabled": "true",
-          "storageUri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net')]"
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+            }
+          ]
+        },
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "enabled": "true",
+            "storageUri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net')]"
+          }
         }
       }
+
     }
   ]
 }
