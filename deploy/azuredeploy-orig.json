@@ -64,25 +64,9 @@
       "metadata": {
         "description": "Name of the VM"
       }
-    },
-    "vaultName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the KeyVault"
-      }
-    },
-    "vaultResourceGroup": {
-      "type": "string",
-      "metadata": {
-        "description": "Resource Group of the KeyVault"
-      }
-    },
-    "certificateUrl": {
-      "type": "string",
-      "metadata": {
-        "description": "Url of the certificate with version in KeyVault e.g. https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7"
-      }
     }
+
+
   },
   "variables": {
     "addressPrefix": "10.0.0.0/16",
@@ -183,32 +167,9 @@
           "computerName": "[parameters('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]",
-          "secrets": [
-            {
-              "sourceVault": {
-                "id": "[resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-              },
-              "vaultCertificates": [
-                {
-                  "certificateUrl": "[parameters('certificateUrl')]",
-                  "certificateStore": "My"
-                }
-              ]
-            }
-          ],
           "windowsConfiguration": {
             "provisionVMAgent": "true",
-            "winRM": {
-              "listeners": [
-                {
-                  "protocol": "http"
-                },
-                {
-                  "protocol": "https",
-                  "certificateUrl": "[parameters('certificateUrl')]"
-                }
-              ]
-            },
+},
             "enableAutomaticUpdates": "true"
           }
         },
